@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="hibernate基础jar包">
+    <CLASSES>
+      <root url="file://G:/jar/hibernate基础jar包" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://G:/jar/hibernate基础jar包" recursive="false" />
+  </library>
+</component>
