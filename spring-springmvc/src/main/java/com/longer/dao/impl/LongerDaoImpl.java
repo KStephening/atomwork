@@ -6,6 +6,7 @@ import com.longer.util.HibernateConfig;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,12 +19,64 @@ import java.util.List;
  **/
 @Repository(value = "longerDao")
 public class LongerDaoImpl implements LongerDao{
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	private Session getCurrentSession(){
+		return this.sessionFactory.openSession();
+	}
+
+	public Longer load(Long id) {
+		return (Longer) getCurrentSession().load(Longer.class,id);
+	}
+
+	public Longer get(Long id) {
+		return (Longer) getCurrentSession().get(Longer.class,id);
+	}
+
+	public List<Longer> findAll() {
+		return null;
+	}
+
+	public void persist(Longer entity) {
+		getCurrentSession().persist(entity);
+	}
+
+	public Long save(Longer entity) {
+		Session session = getCurrentSession();
+		Transaction transaction = null;
+		try {
+			transaction=session.beginTransaction();
+			session.save(entity);
+			transaction.commit();
+		}catch (Exception e){
+			transaction.rollback();
+			e.printStackTrace();
+		}
+		session.close();
+		return 1L;
+	}
+
+	public void saveOrUpdate(Longer entity) {
+		getCurrentSession().saveOrUpdate(entity);
+	}
+
+	public void delete(Long id) {
+		Longer longer = load(id);
+		getCurrentSession().delete(longer);
+	}
+
+	public void flush() {
+		getCurrentSession().flush();
+	}
+
 	public Longer getLongerById() {
 		SessionFactory sessionFactory = HibernateConfig.getFactory();
 		Session session = sessionFactory.openSession();
 		Transaction transaction = null;
 		try{
-			Longer longer=new Longer(1,"longer",20);
+//			Longer longer=new Longer(1,"longer",20);
+			Longer longer = new Longer();
 			session.save(longer);
 			List<Longer> longers = session.createQuery("FROM Longer ").list();
 			for (Longer longer1:longers){

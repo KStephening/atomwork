@@ -9,5 +9,7 @@ import com.longer.entity.Longer;
  * @create: 2018-10-17 09:01
  **/
 public interface LongerService {
-	Longer getLongerById();
+	Long savePerson();
+
+	Longer get(Long id);
 }
