@@ -43,18 +43,7 @@ public class LongerDaoImpl implements LongerDao{
 	}
 
 	public Long save(Longer entity) {
-		Session session = getCurrentSession();
-		Transaction transaction = null;
-		try {
-			transaction=session.beginTransaction();
-			session.save(entity);
-			transaction.commit();
-		}catch (Exception e){
-			transaction.rollback();
-			e.printStackTrace();
-		}
-		session.close();
-		return 1L;
+		return (Long) getCurrentSession().save(entity);
 	}
 
 	public void saveOrUpdate(Longer entity) {
@@ -75,7 +64,6 @@ public class LongerDaoImpl implements LongerDao{
 		Session session = sessionFactory.openSession();
 		Transaction transaction = null;
 		try{
-//			Longer longer=new Longer(1,"longer",20);
 			Longer longer = new Longer();
 			session.save(longer);
 			List<Longer> longers = session.createQuery("FROM Longer ").list();

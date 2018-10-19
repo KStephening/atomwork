@@ -2,10 +2,7 @@ package com.longer.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @program: spring-springmvc
@@ -18,6 +15,7 @@ import javax.persistence.Table;
 @Table(name = "LONGER")
 public class Longer {
 	@Id
+	@GeneratedValue
 	private Long id;
 
 	@Column(name = "NAME")

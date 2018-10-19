@@ -3,6 +3,7 @@ package com.longer.util;
 import com.google.common.base.Predicate;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -29,6 +30,7 @@ import java.util.List;
 @Configuration
 @EnableWebMvc
 @EnableSwagger2
+@ComponentScan("com.longer.controller")
 public class SwaggerConfig {
 
 	@Bean

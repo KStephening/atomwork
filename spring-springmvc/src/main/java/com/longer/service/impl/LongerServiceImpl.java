@@ -15,10 +15,9 @@ import javax.transaction.Transactional;
  * @create: 2018-10-17 09:01
  **/
 @Service("longerService")
-@Transactional
 public class LongerServiceImpl implements LongerService{
 
-	@Autowired
+	@Autowired(required = true)
 	private LongerDao longerDao;
 
 	public Longer get(Long id) {
@@ -28,10 +27,7 @@ public class LongerServiceImpl implements LongerService{
 	public Long savePerson() {
 		Longer longer = new Longer();
 		longer.setName("longer");
-		longer.setId(1L);
-		longer.setAge(20L);
-		longerDao.save(longer);
-		longerDao.flush();
-		return 1L;
+		longer.setAge(21L);
+		return longerDao.save(longer);
 	}
 }
