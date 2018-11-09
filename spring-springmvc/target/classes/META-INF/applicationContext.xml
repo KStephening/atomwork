@@ -11,8 +11,9 @@
 
 	<!--********************************************配置Spring***************************************-->
 	<!-- 自动扫描 -->
+	<!--spring和springmvc分别处理不同的类，要区别扫描，所以要过滤-->
 	<context:component-scan base-package="com.longer">
-		<!-- 扫描时跳过 @Controller 注解的JAVA类（控制器） -->
+		<!-- 扫描时跳过 @Controller 注解的JAVA类（控制器）   -->
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 

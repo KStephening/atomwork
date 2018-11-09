@@ -836,88 +836,112 @@
     <table id="212" parent="8" name="menu">
       <Engine>InnoDB</Engine>
     </table>
-    <column id="213" parent="211" name="id">
+    <table id="213" parent="8" name="treenodes">
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="214" parent="211" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="214" parent="211" name="sname">
+    <column id="215" parent="211" name="sname">
       <Position>2</Position>
       <DataType>varchar(16)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="215" parent="211" name="gender">
+    <column id="216" parent="211" name="gender">
       <Position>3</Position>
       <DataType>varchar(2)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="216" parent="211" name="birthday">
+    <column id="217" parent="211" name="birthday">
       <Position>4</Position>
       <DataType>date|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="217" parent="211" name="major">
+    <column id="218" parent="211" name="major">
       <Position>5</Position>
       <DataType>varchar(16)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="218" parent="211" name="address">
+    <column id="219" parent="211" name="address">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="219" parent="211" name="PRIMARY">
+    <key id="220" parent="211" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="220" parent="212" name="ID">
+    <column id="221" parent="212" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="221" parent="212" name="NAME">
+    <column id="222" parent="212" name="NAME">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="222" parent="212" name="LINK">
+    <column id="223" parent="212" name="LINK">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="223" parent="212" name="GRADE">
+    <column id="224" parent="212" name="GRADE">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="224" parent="212" name="PID">
+    <column id="225" parent="212" name="PID">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="225" parent="212" name="MORDER">
+    <column id="226" parent="212" name="MORDER">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="226" parent="212" name="menu_menu_ID_fk">
+    <index id="227" parent="212" name="menu_menu_ID_fk">
       <ColNames>PID</ColNames>
     </index>
-    <key id="227" parent="212" name="PRIMARY">
+    <key id="228" parent="212" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="228" parent="212" name="menu_menu_ID_fk">
+    <foreign-key id="229" parent="212" name="menu_menu_ID_fk">
       <ColNames>PID</ColNames>
       <RefSchemaName>ssh</RefSchemaName>
       <RefTableName>menu</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
+    <column id="230" parent="213" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="231" parent="213" name="pid">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="232" parent="213" name="nodename">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="233" parent="213" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>

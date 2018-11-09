@@ -1,0 +1,27 @@
+## 观察者模式
+### 观察组一
+#### 观察者 MainFrame
+```java
+public void update(Observable o, Object arg) {
+	if (o == null || (!o.getClass().equals(DataCache.class))) {
+			return;
+	}
+	if (arg != null && (arg.getClass().equals(String.class))) {
+		String para1 = (String) arg;
+		if (para1.equalsIgnoreCase("正在加载")) {
+			    card.show(mainPanel, "load");
+			    return;
+		}
+		if (para1.equalsIgnoreCase("彻底结束")) {
+			card.show(mainPanel, "data");
+			return;
+		}
+		if (para1.equalsIgnoreCase("切片下载完成")) {
+			card.show(mainPanel, "load");
+			DataCache.getDataCache().notifyParaChanged("加载切片");
+			return;
+		}
+	}
+}
+```
+#### 被观察者 DataCache
